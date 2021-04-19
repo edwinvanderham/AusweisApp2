@@ -3,13 +3,6 @@ version: "{build}"
 environment:
   matrix:
     - PlatformToolset: v142
-      platform: Win32
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-      QTPath: C:\Qt\5.15\msvc2019
-      OPENSSLPath: C:\OpenSSL-v111-Win32
-      ARCHI: x86
-
-    - PlatformToolset: v142
       platform: x64
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
       QTPath: C:\Qt\5.15\msvc2019_64
@@ -59,7 +52,7 @@ build_script:
 
     - ps: |
         if($cmake_generator_architecture) {
-            cmake -G "$generator" -A $cmake_generator_architecture -DCMAKE_BUILD_TYPE="$env:CONFIGURATION" ..
+            cmake -G "$generator" -A $cmake_generator_architecture -DCMAKE_BUILD_TYPE="$env:CONFIGURATION" -DINTEGRATED_SDK=ON -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a ..
         } else {
             cmake -G "$generator" -DCMAKE_BUILD_TYPE="$env:CONFIGURATION" ..
         }
