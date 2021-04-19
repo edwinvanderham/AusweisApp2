@@ -2,18 +2,6 @@ version: "{build}"
 
 environment:
   matrix:
-    - PlatformToolset: mingw-w64
-      platform: mingw-w64
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-      QTPath: C:\Qt\5.15\mingw81_64
-      OPENSSLPath: C:\OpenSSL-v111-Win64
-
-    - PlatformToolset: mingw-w64_i686
-      platform: mingw-w64_i686
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-      QTPath: C:\Qt\5.15\mingw81_32
-      OPENSSLPath: C:\OpenSSL-v111-Win32
-
     - PlatformToolset: v142
       platform: Win32
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
@@ -39,7 +27,7 @@ install:
     - if "%PlatformToolset%"=="v142" call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" %archi%
 
 build:
-    verbosity: minimal
+    verbosity: detailed
 
 before_build:
 - ps: |
