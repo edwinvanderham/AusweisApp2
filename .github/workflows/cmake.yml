@@ -46,5 +46,13 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: cmake ../source -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_PREFIX_PATH="${{github.workspace}}/toolchain/dist" -DCMAKE_TOOLCHAIN_FILE=../source/cmake/android.toolchain.cmake -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_ANDROID_ARCH_ABI=${ARCH}
 
+    - name: make install android
+      shell: bash
+      working-directory: ${{github.workspace}}/build
+      run: make install
 
+    - name: make aar android
+      shell: bash
+      working-directory: ${{github.workspace}}/build
+      run: make aar
 
