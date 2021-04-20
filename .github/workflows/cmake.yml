@@ -32,4 +32,8 @@ jobs:
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       run: cmake -DCMAKE_BUILD_TYPE=release -DPACKAGES_DIR=${{github.workspace}}/packages -DCMAKE_TOOLCHAIN_FILE=${{github.workspace}}/cmake/android.toolchain.cmake ${{github.workspace}}/libs
 
+    - name: make
+      shell: bash
+      working-directory: ${{github.workspace}}/build
+      run: make
 
