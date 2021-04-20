@@ -28,7 +28,7 @@ jobs:
     - name: cmake libs
       shell: bash
       working-directory: ${{github.workspace}}/build
-      run: cmake -DCMAKE_BUILD_TYPE=release -DPACKAGES_DIR=${{github.workspace}}/packages -DCMAKE_TOOLCHAIN_FILE=${{github.workspace}}/cmake/android.toolchain.cmake ${{github.workspace}}/source/libs
+      run: cmake -DCMAKE_BUILD_TYPE=release -DPACKAGES_DIR=${{github.workspace}}/packages -DCMAKE_TOOLCHAIN_FILE=${{github.workspace}}/source/cmake/android.toolchain.cmake ${{github.workspace}}/source/libs
 
     - name: make libs
       shell: bash
