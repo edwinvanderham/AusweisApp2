@@ -21,8 +21,6 @@ jobs:
         path: source
 
     - name: create build dir
-      # Some projects don't allow in-source building, so create a separate build directory
-      # We'll use this as our working directory for all subsequent commands
       run: cmake -E make_directory ${{github.workspace}}/build
 
     - name: cmake libs
@@ -35,20 +33,15 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: make
 
-    - name: list libs dir
-      shell: bash
-      working-directory: ${{github.workspace}}/source/libs
-      run: ls -las
-
-    - name: list libs build dir
-      shell: bash
-      working-directory: ${{github.workspace}}/source/libs/build
-      run: ls -las
-
-    - name: cmake android
+    - name: list build dir
       shell: bash
       working-directory: ${{github.workspace}}/build
-      run: cmake ../source -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_PREFIX_PATH="${{github.workspace}}/source/libs/${ARCH}/build/dist;${{github.workspace}}/source/libs/build/dist" -DCMAKE_TOOLCHAIN_FILE=../source/cmake/android.toolchain.cmake -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_ANDROID_ARCH_ABI=${ARCH}
+      run: ls -las
+
+    #- name: cmake android
+    #  shell: bash
+    #  working-directory: ${{github.workspace}}/build
+    #  run: cmake ../source -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_PREFIX_PATH="${{github.workspace}}/source/libs/${ARCH}/build/dist;${{github.workspace}}/source/libs/build/dist" -DCMAKE_TOOLCHAIN_FILE=../source/cmake/android.toolchain.cmake -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_ANDROID_ARCH_ABI=${ARCH}
 
 
 
