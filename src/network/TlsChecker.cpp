@@ -40,7 +40,7 @@ bool TlsChecker::checkCertificate(const QSslCertificate& pCertificate,
 		}
 	}
 
-	return false;
+	return true;
 }
 
 
