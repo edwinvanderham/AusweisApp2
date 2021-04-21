@@ -61,6 +61,12 @@ jobs:
       working-directory: ${{github.workspace}}
       run: zip -r build.zip build
       
+    - name: archive aar
+      uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: ${{github.workspace}}/build/dist/build/outputs/aar/dist-release.aar
+
     - name: archive zip
       uses: actions/upload-artifact@v2
       with:
