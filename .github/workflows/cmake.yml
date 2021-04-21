@@ -64,7 +64,7 @@ jobs:
     - name: archive aar
       uses: actions/upload-artifact@v2
       with:
-        name: build
+        name: aar
         path: ${{github.workspace}}/build/dist/build/outputs/aar/dist-release.aar
 
     - name: archive zip
