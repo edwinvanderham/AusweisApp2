@@ -50,6 +50,11 @@ jobs:
       shell: bash
       working-directory: ${{github.workspace}}/build
       run: make install
+      
+    - name: make aar android
+      shell: bash
+      working-directory: ${{github.workspace}}/build
+      run: make aar
 
     - name: zip build dir
       shell: bash
