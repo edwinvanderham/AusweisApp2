@@ -45,7 +45,7 @@ bool UrlUtil::isMatchingSameOriginPolicy(const QUrl& pUrl1, const QUrl& pUrl2)
 	QUrl urlOrigin2 = UrlUtil::getUrlOrigin(pUrl2);
 	bool sameOriginPolicyCheckResult = (urlOrigin1 == urlOrigin2);
 	qCDebug(network) << "SOP-Check(" << urlOrigin1.toString() << "," << urlOrigin2.toString() << ")=" << sameOriginPolicyCheckResult;
-	return true;
+	return sameOriginPolicyCheckResult;
 }
 
 
