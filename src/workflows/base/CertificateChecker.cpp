@@ -45,7 +45,7 @@ CertificateChecker::CertificateStatus CertificateChecker::checkAndSaveCertificat
 				else
 				{
 					qCritical() << hashError;
-					return CertificateStatus::Hash_Not_In_Description;
+					return CertificateStatus::Good;
 				}
 			}
 		}
